@@ -1,0 +1,143 @@
+🦁 BashaLanka — Navigation Fix + Characters Rework + New Exercise Implementations
+1. “Start Section” Navigation Fix
+
+Current issue:
+Clicking “Start Section 1” currently redirects users to the home screen instead of showing the section’s lessons.
+
+Intended behavior:
+
+Clicking Start Section 1, Start Section 2, etc. should bring the user back to the Learn view, not a new screen.
+
+The Learn view should automatically:
+
+Scroll to or focus on the selected section’s container.
+
+Expand that section’s Units grid immediately (if collapsed).
+
+Show all lesson coins for that section’s units (so the user can click individual lessons right away).
+
+No extra routing like #/section/1 needed — stay within the Learn page logic.
+
+The goal: preserve the simple path
+Home → Learn → [Section Expanded] → Lesson Coins → LessonSimulator
+so users can jump right back into visible content.
+
+Optional polish:
+
+Add a smooth scroll animation to the section’s card when opened.
+
+Temporarily highlight the section header (like a short glowing border or bounce animation) to show where the user landed.
+
+2. Characters Page Rework
+
+Current issue:
+The Characters page currently mixes Sinhala letters with example words and common phrases.
+
+Intended behavior:
+
+Rebuild the Characters view to focus exclusively on the Sinhala script itself, not vocabulary.
+
+Organize characters into three clear groups:
+
+Vowels (අ – ඕ)
+
+Consonants (ක – හ)
+
+Combined Forms / Modifiers (e.g., කා, කි, කු, කෝ)
+
+Each character card should include:
+
+The Sinhala glyph in large type.
+
+Romanized transliteration underneath.
+
+An audio playback button for pronunciation.
+
+A progress indicator (localStorage-based mastery).
+
+A “Practice” button to open the corresponding mini-exercise (e.g., Match Pairs, Listening).
+
+Removed content:
+
+Delete all “Common Phrases” or “Word Examples” sections from this view.
+
+Characters are taught in isolation — example words move to regular lessons.
+
+Goal:
+A clean, focused Character Mastery Hub — no phrases, just script learning.
+
+3. New Exercise Types to Implement
+
+We’ve implemented Match Pairs and both translation exercises.
+Now, code the five remaining exercise modules to complete the full interactive library.
+
+🖼️ Picture Choice
+
+Show an English or Sinhala cue.
+
+Display 3–4 image options.
+
+User clicks the matching picture.
+
+Highlight correct/incorrect instantly and proceed.
+
+✍️ Fill in the Blank
+
+Show a sentence with a missing word (“මම ___ ඉන්නවා”).
+
+Several options appear below; user chooses the correct one.
+
+Provide instant feedback and continue.
+
+🎧 Listening
+
+Play Sinhala audio.
+
+User either:
+
+Selects matching translation (multiple choice), or
+
+Types what they heard (dictation mode).
+
+Include “replay” and “slow” buttons.
+
+💬 Dialogue
+
+Step-by-step conversation simulation between two speakers.
+
+User picks their reply from multiple responses after each prompt.
+
+Visual speech bubbles for flow clarity.
+
+🗣️ Speaking
+
+Uses microphone input (Web Speech API).
+
+Prompts user to say Sinhala words aloud.
+
+Compares recognized speech with expected Romanized or Sinhala string (approximate match is fine).
+
+Gives feedback: ✅ “Good pronunciation!” or ❌ “Try again.”
+
+All new exercise modules must:
+
+Follow the same structure:
+
+export default async function init({ target, onComplete }) { ... }
+
+
+Live under assets/Lessons/exercises/<ExerciseName>/index.js
+
+Trigger onComplete() when finished so LessonSimulator can advance.
+
+Use shared styles and theme variables from existing CSS (translate-to-base, etc.).
+
+4. Summary of This Update
+Area	Task	Result
+Start Section Routing	Fix CTA to return to Learn view and auto-expand target section	Keeps navigation intuitive and fluid
+Characters View	Remove phrases, show only Sinhala letters grouped by type	Clean script-learning hub
+Picture Choice	Implement new exercise	Visual comprehension practice
+Fill in the Blank	Implement new exercise	Grammar and word order practice
+Listening	Implement new exercise	Audio recognition skill
+Dialogue	Implement new exercise	Conversational flow training
+Speaking	Implement new exercise	Pronunciation practice via mic
