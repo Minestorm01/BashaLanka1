@@ -1,0 +1,104 @@
+{
+  "id": "section-1",
+  "number": 1,
+  "title": "Section 1",
+  "status": "unlocked",
+  "cta": "Start Section 1",
+  "phrase": { "romanised": "kohomada?", "si": "කොහොමද?" },
+  "mascot": "assets/sections/section-1/mascot.svg",
+  "description": "Foundational Sinhala for everyday greetings and getting around.",
+  "units": [
+    {
+      "id": "s1u1",
+      "number": 1,
+      "title": "Greetings 1",
+      "status": "unlocked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Pronouns + key words", "status": "unlocked" },
+        { "id": "lesson-02", "title": "Ask “How are you?”", "status": "locked" },
+        { "id": "lesson-03", "title": "Answers + formal greeting", "status": "locked" },
+        { "id": "lesson-04", "title": "Unit Review", "type": "review", "status": "locked" }
+      ]
+    },
+    {
+      "id": "s1u2",
+      "number": 2,
+      "title": "Yes/No & ‘Am’ Forms",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1" },
+        { "id": "lesson-02", "title": "Lesson 2" },
+        { "id": "lesson-03", "title": "Unit Review", "type": "review" }
+      ]
+    },
+    {
+      "id": "s1u3",
+      "number": 3,
+      "title": "Introduce Yourself",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1" },
+        { "id": "lesson-02", "title": "Lesson 2" },
+        { "id": "lesson-03", "title": "Unit Review", "type": "review" }
+      ]
+    },
+    {
+      "id": "s1u4",
+      "number": 4,
+      "title": "Pronouns 1",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1" },
+        { "id": "lesson-02", "title": "Lesson 2" },
+        { "id": "lesson-03", "title": "Lesson 3" },
+        { "id": "lesson-04", "title": "Unit Review", "type": "review" }
+      ]
+    },
+    {
+      "id": "s1u5",
+      "number": 5,
+      "title": "Possessives",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1" },
+        { "id": "lesson-02", "title": "Lesson 2" },
+        { "id": "lesson-03", "title": "Unit Review", "type": "review" }
+      ]
+    },
+    {
+      "id": "s1u6",
+      "number": 6,
+      "title": "Script Basics A",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1" },
+        { "id": "lesson-02", "title": "Lesson 2" },
+        { "id": "lesson-03", "title": "Lesson 3" },
+        { "id": "lesson-04", "title": "Unit Review", "type": "review" }
+      ]
+    },
+    {
+      "id": "s1u7",
+      "number": 7,
+      "title": "Question Words",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1" },
+        { "id": "lesson-02", "title": "Lesson 2" },
+        { "id": "lesson-03", "title": "Unit Review", "type": "review" }
+      ]
+    },
+    {
+      "id": "s1u8",
+      "number": 8,
+      "title": "Core Verbs (Present)",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1" },
+        { "id": "lesson-02", "title": "Lesson 2" },
+        { "id": "lesson-03", "title": "Lesson 3" },
+        { "id": "lesson-04", "title": "Unit Review", "type": "review" }
+      ]
+    }
+  ]
+}
