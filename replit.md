@@ -10,6 +10,38 @@ Static HTML/CSS/JavaScript web application (no backend required)
 - Hash-based client-side routing
 
 ## Recent Changes (2025-10-27)
+- **Section Navigation Enhancement**: Implemented proper section deep-linking with race condition fix
+  - Added hash routing support for #/section/{id} URLs
+  - Implemented waitForLearnModule helper to ensure Learn module initialization before rendering
+  - Section view now displays full vertical lesson path (not accordion expansion)
+  - "Start Section" buttons properly navigate to section view
+  - Back button returns to main Learn overview
+  
+- **Characters Page Redesign**: Complete visual and functional overhaul
+  - Added progress header showing Mastered/Learning/New character stats
+  - Implemented filter tabs (All, Vowels, Consonants, Combined Forms)
+  - Enhanced card layout with hover animations and cleaner design
+  - Progress tracking based on localStorage mastery data
+  
+- **Home Page Visual Improvements**: Enhanced landing experience
+  - Multi-layer gradient background with radial overlays
+  - Animated floating logo with glow effect
+  - Gradient text styling for main title
+  - Fade-in animations for all elements with staggered delays
+  - CTA buttons with ripple hover effects
+  - Glass-morphism effect on feature cards
+  
+- **Bug Fixes**:
+  - Fixed PictureChoice exercise module duplicate 'choices' key in buildLayout return
+  
+- **GitHub Import Completed**: Successfully set up BashaLanka in Replit environment
+  - Installed npm dependencies (http-server)
+  - Created .gitignore for Node.js and Replit files
+  - Configured workflow to run on port 5000
+  - Set up deployment configuration for autoscale (static site)
+  - Verified app runs correctly with all features working
+
+## Previous Changes (2025-10-27)
 - **Lesson Access**: All users can now start lessons (previously admin-only)
 - **Characters View**: New view with Sinhala character grid, audio playback, and practice
 - **Practice Builder**: Custom practice session configurator with mode/exercise/duration selection
@@ -18,7 +50,7 @@ Static HTML/CSS/JavaScript web application (no backend required)
 - Fixed routing to properly handle home view
 - Removed undefined connectLessons() call that was causing console errors
 
-## Previous Changes (2025-10-26)
+## Initial Setup (2025-10-26)
 - Initial GitHub import to Replit
 - Set up Node.js development environment
 - Configured http-server for local development on port 5000

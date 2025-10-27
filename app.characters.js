@@ -17,6 +17,7 @@
 
   let charactersData = null;
   let loadingPromise = null;
+  let activeFilter = 'all';
 
   async function loadCharacters(){
     if(charactersData) return charactersData;
@@ -106,6 +107,80 @@
     `;
   }
 
+  function calculateProgress(data){
+    if(!data || !Array.isArray(data.groups)) return { total: 0, mastered: 0, learning: 0, new: 0 };
+    
+    let total = 0, mastered = 0, learning = 0, newCount = 0;
+    
+    data.groups.forEach(group => {
+      (group.characters || []).forEach(char => {
+        const charId = `${group.id}-${char.si}`;
+        const progress = getProgress(charId);
+        const masteryLevel = progress.mastery || 0;
+        total++;
+        if(masteryLevel >= 0.8) mastered++;
+        else if(masteryLevel >= 0.3) learning++;
+        else newCount++;
+      });
+    });
+    
+    return { total, mastered, learning, new: newCount };
+  }
+
+  function renderProgressHeader(stats){
+    const masteredPercent = stats.total > 0 ? Math.round((stats.mastered / stats.total) * 100) : 0;
+    
+    return `
+      <div class="char-header">
+        <div class="char-header__info">
+          <h2 class="char-header__title">Sinhala Script</h2>
+          <p class="char-header__desc">Master the Sinhala alphabet with interactive practice</p>
+        </div>
+        <div class="char-header__stats">
+          <div class="char-stat char-stat--mastered">
+            <div class="char-stat__value">${stats.mastered}</div>
+            <div class="char-stat__label">Mastered</div>
+          </div>
+          <div class="char-stat char-stat--learning">
+            <div class="char-stat__value">${stats.learning}</div>
+            <div class="char-stat__label">Learning</div>
+          </div>
+          <div class="char-stat char-stat--new">
+            <div class="char-stat__value">${stats.new}</div>
+            <div class="char-stat__label">New</div>
+          </div>
+        </div>
+        <div class="char-header__progress">
+          <div class="char-progress-bar">
+            <div class="char-progress-fill" style="width: ${masteredPercent}%"></div>
+          </div>
+          <span class="char-progress-text">${masteredPercent}% Complete</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderFilters(groups){
+    const filters = [
+      { id: 'all', label: 'All Characters' },
+      ...groups.map(g => ({ id: g.id, label: g.title }))
+    ];
+    
+    return `
+      <div class="char-filters">
+        ${filters.map(f => `
+          <button 
+            type="button" 
+            class="char-filter ${activeFilter === f.id ? 'active' : ''}"
+            data-filter="${escapeHtml(f.id)}"
+          >
+            ${escapeHtml(f.label)}
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+
   async function render(){
     grid.innerHTML = '<p class="loading">Loading characters...</p>';
     
@@ -116,11 +191,34 @@
     }
 
     const sortedGroups = data.groups.sort((a, b) => (a.order || 0) - (b.order || 0));
-    const groupsHtml = sortedGroups.map(group => renderGroup(group)).join('');
-    grid.innerHTML = groupsHtml;
+    const stats = calculateProgress(data);
+    
+    const filteredGroups = activeFilter === 'all' 
+      ? sortedGroups 
+      : sortedGroups.filter(g => g.id === activeFilter);
+    
+    const groupsHtml = filteredGroups.map(group => renderGroup(group)).join('');
+    
+    grid.innerHTML = `
+      ${renderProgressHeader(stats)}
+      ${renderFilters(sortedGroups)}
+      <div class="char-content">
+        ${groupsHtml || '<p class="char-empty">No characters found.</p>'}
+      </div>
+    `;
   }
 
   function handleClick(e){
+    const filterBtn = e.target.closest('.char-filter');
+    if(filterBtn){
+      const filterId = filterBtn.dataset.filter;
+      if(filterId){
+        activeFilter = filterId;
+        render();
+      }
+      return;
+    }
+
     const audioBtn = e.target.closest('.char-card__audio');
     if(audioBtn){
       const audioPath = audioBtn.dataset.audio;
