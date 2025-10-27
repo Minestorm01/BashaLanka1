@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+   <meta charset="utf-8" />
+     <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>BashaLanka — Learn Sinhala</title>
+
+    <!-- App identity -->
+    <meta name="description" content="BashaLanka — learn Sinhala with quick, game-like lessons." />
+    <link rel="icon" href="./assets/PNG/tab_icon.png" />
+    <link rel="apple-touch-icon" href="./assets/PNG/tab_icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+
+    <!-- Fonts (system stack for speed; swap later if desired) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Include fixed sidebar overrides -->
+    <link rel="stylesheet" href="./sidebar-fixed.override.css" />
+    <link rel="stylesheet" href="./styles.learn.css" />
+    <link rel="stylesheet" href="./styles.features.css" />
+
+    <!-- PWA / Theming -->
+    <meta name="theme-color" content="#0f1720" />
+  </head>
+
+  <body>
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
+    <button class="icon-btn" aria-label="Menu" aria-expanded="false" data-action="toggle-sidebar" aria-controls="sidebar">☰</button>
+    <div class="topbar__spacer"></div>
+    <button id="themeToggle" class="icon-btn" title="Toggle theme">🌓</button>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar" aria-label="Main">
+      <a class="brand" href="#/home">
+        <picture>
+          <source srcset="./assets/SVG/Bashalinka_top_left.svg" type="image/svg+xml" />
+          <img class="brand__logo" src="./assets/PNG/Bashalinka_top_left.png" alt="BashaLanka home" loading="lazy" decoding="async" />
+        </picture>
+        <span class="brand__name">BashaLanka</span>
+      </a>
+
+       <nav class="side-nav" role="navigation">
+        <button class="sidebar__link" data-route="learn">
+          <span aria-hidden="true">🏠</span><span>Learn</span>
+        </button>
+        <button class="sidebar__link" data-route="characters">
+          <span aria-hidden="true">ම</span><span>Characters</span>
+        </button>
+        <button class="sidebar__link" data-route="practice">
+          <span aria-hidden="true">🧩</span><span>Practice</span>
+        </button>
+        <button class="sidebar__link" data-route="quests">
+          <span aria-hidden="true">🗺️</span><span>Quests</span>
+        </button>
+        <button class="sidebar__link" data-route="profile">
+          <span aria-hidden="true">👤</span><span>Profile</span>
+        </button>
+        <button class="sidebar__link" data-route="settings">
+          <span aria-hidden="true">⚙️</span><span>Settings</span>
+        </button>
+      </nav>
+    </aside>
+
+
+    <!-- Main content area -->
+    <main id="app" class="main" role="main">
+    
+    <!-- HOME / LANDING -->
+    <section id="view-home" class="view view-home" hidden>
+      <div class="landing">
+        <div class="landing__hero">
+          <img src="./assets/SVG/app_logo.svg" alt="BashaLanka" class="landing__logo" />
+          <h1 class="landing__title">Learn Sinhala with BashaLanka</h1>
+          <p class="landing__tagline">Master the Sinhala language with interactive, game-like lessons</p>
+          <div class="landing__cta">
+            <a href="#/learn" class="btn btn--primary btn--lg">Start Learning</a>
+            <a href="#/characters" class="btn btn--secondary btn--lg">Explore Characters</a>
+          </div>
+        </div>
+        <div class="landing__features">
+          <div class="feature-card">
+            <div class="feature-card__icon">🎯</div>
+            <h3 class="feature-card__title">Interactive Lessons</h3>
+            <p class="feature-card__description">Learn through engaging exercises like matching, translation, and listening comprehension</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">📚</div>
+            <h3 class="feature-card__title">Structured Path</h3>
+            <p class="feature-card__description">Follow a carefully designed curriculum from beginner to advanced</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🔊</div>
+            <h3 class="feature-card__title">Audio Pronunciation</h3>
+            <p class="feature-card__description">Hear native pronunciations and practice speaking with confidence</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🏆</div>
+            <h3 class="feature-card__title">Track Progress</h3>
+            <p class="feature-card__description">Complete quests, earn rewards, and see your improvement over time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- LEARN -->
+    <section id="view-learn" class="view" hidden></section>
+
+    <!-- CHARACTERS -->
+    <section id="view-characters" class="view" hidden aria-labelledby="characters-title">
+      <h1 id="characters-title" class="section-title">Characters</h1>
+      <p class="muted">Learn Sinhala script step by step.</p>
+      <div id="charGrid" class="card-grid"></div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section id="view-practice" class="view" hidden aria-labelledby="practice-title">
+      <h1 id="practice-title" class="section-title">Practice</h1>
+      <div class="card">Custom practice sessions coming soon.</div>
+    </section>
+
+    <!-- QUESTS -->
+    <section id="view-quests" class="view" hidden aria-labelledby="quests-title">
+      <h1 id="quests-title" class="section-title">Quests</h1>
+      <div id="questsList" class="card-list"></div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="view-profile" class="view" hidden aria-labelledby="profile-title">
+      <h1 id="profile-title" class="section-title">Profile</h1>
+      <div id="profileContent" class="profile-content" aria-live="polite"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="view-settings" class="view" hidden aria-labelledby="settings-title">
+      <h1 id="settings-title" class="section-title">Settings</h1>
+
+      <form id="settingsForm" class="prefs">
+  <fieldset>
+          <legend>Preferences</legend>
+          <label class="toggle"><input type="checkbox" name="sfx"> <span>Sound effects</span></label>
+          <label class="toggle"><input type="checkbox" name="anim"> <span>Animations</span></label>
+          <label class="toggle"><input type="checkbox" name="motivate"> <span>Motivational messages</span></label>
+          <label class="toggle"><input type="checkbox" name="listen"> <span>Listening exercises</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Appearance</legend>
+          <div class="radio-row">
+            <label><input type="radio" name="appearance" value="system"> System Default</label>
+            <label><input type="radio" name="appearance" value="dark"> Dark</label>
+            <label><input type="radio" name="appearance" value="light"> Light</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Sinhala (example)</legend>
+          <label class="toggle"><input type="checkbox" name="romanized" checked> <span>Show pronunciation (Romanized)</span></label>
+        </fieldset>
+
+        <button class="btn btn--primary" type="submit">Save</button>
+      </form>
+    </section>
+    </main>
+  </div>
+  <div id="drawerScrim" class="scrim" hidden></div>
+
+    
+    <script src="./app.home.js" defer></script>
+    <script src="./app.characters.js" defer></script>
+    <script src="./app.practice.js" defer></script>
+    <script src="./app.quests.js" defer></script>
+    <script id="sections-overview-data" type="application/json">
+{
+  "1": {
+    "tagline": "Start with essential phrases and simple grammar concepts",
+    "summary": "Focus on must-know phrases, SOV word order, and subject omission.",
+    "helpfulHints": [
+      "Sinhala often drops “am/is/are” in simple present.",
+      "The question marker “ද” (da) turns a statement into a question.",
+      "Use “ගේ” (gé) for possession with people and animals."
+    ],
+    "grammarConcepts": [
+      {
+        "title": "Word order (Sinhala)",
+        "explanation": "Verb typically comes at the end; “is/are/am” may be implied.",
+        "examples": [
+          { "l1": "මම හොඳින් ඉන්නවා — mama hondin innavā.", "gloss": "I (am) fine." },
+          { "l1": "ඔයා කතා කරනවා — oyā kathā karanavā.", "gloss": "You speak / are speaking." }
+        ]
+      },
+      {
+        "title": "Possession with “ගේ”",
+        "explanation": "Attach “ගේ” (gé) to people/animals for possession.",
+        "examples": [
+          { "l1": "ඔයාගේ නම මොකක්ද? — oyāgé nama mokakda?", "gloss": "Your name, what? → What’s your name?" },
+          { "l1": "මගේ රට ශ්‍රී ලංකාව — magé raṭa Śrī Laṅkāva.", "gloss": "My country, Sri Lanka." }
+        ]
+      }
+    ],
+    "cta": {
+      "text": "Start Section 1",
+      "href": "#/section/1"
+    }
+  },
+  "2": {
+    "tagline": "Build everyday conversation stamina",
+    "summary": "Practice polite requests, introduce friends, and follow polite particles for smoother chats.",
+    "helpfulHints": [
+      "Add “පිලි” (pili) for gentle requests when speaking casually.",
+      "Honorific “ඔයාල” (oyālā) works for groups or formal situations.",
+      "Sentence particles often soften tone — listen for them in native speech."
+    ],
+    "grammarConcepts": [
+      {
+        "title": "Polite requests",
+        "explanation": "Use “කරන්න පුළුවන්ද” (karanna puluwanda) to ask if someone can do something politely.",
+        "examples": [
+          { "l1": "ඔයා කරන්න පුළුවන්ද? — oyā karanna puluwanda?", "gloss": "Can you please do it?" },
+          { "l1": "මට දෙන්න පුළුවන්ද? — mata denna puluwanda?", "gloss": "Could you give it to me?" }
+        ]
+      },
+      {
+        "title": "Introducing others",
+        "explanation": "Link names with “ඔයාල” (oyālā) and verbs like “meet” for formal introductions.",
+        "examples": [
+          { "l1": "මෙයා මගේ යාලුවා — meyā magé yāluvā.", "gloss": "This is my friend." },
+          { "l1": "මෙක ඔයාල හම්බෙනවා — meka oyālā hambenavā.", "gloss": "This is where you all meet." }
+        ]
+      }
+    ],
+    "cta": {
+      "text": "Continue Section 2",
+      "href": "#/section/2"
+    }
+  },
+  "3": {
+    "tagline": "Travel and directions with confidence",
+    "summary": "Learn how to ask for locations, talk about transport, and use locative suffixes.",
+    "helpfulHints": [
+      "Add “-කො” (-ko) to nouns to mean “where is...?”.",
+      "Use direction pairs like “යතින්/පිටින්” (yatin/pitin) — inside/outside.",
+      "Bus conductors appreciate short, clear sentences with place names first."
+    ],
+    "grammarConcepts": [
+      {
+        "title": "Locative suffixes",
+        "explanation": "Attach “-i” or “-e” endings to show location or direction.",
+        "examples": [
+          { "l1": "කොළඹදී? — Kolamba-di?", "gloss": "At Colombo, where?" },
+          { "l1": "බස් එක ගම්පහට යනවා — bas eka Gampaha-ṭa yanavā.", "gloss": "The bus is going to Gampaha." }
+        ]
+      },
+      {
+        "title": "Giving directions",
+        "explanation": "Combine verbs like “යන්න” (yanna, go) with direction words to steer listeners.",
+        "examples": [
+          { "l1": "දෙකක් ඉදට යන්න — dekak idata yanna.", "gloss": "Go two spaces forward." },
+          { "l1": "දකුඇඩ පිටින් ඉන්නවා — dakku-ed pitin innavā.", "gloss": "It is outside on the right." }
+        ]
+      }
+    ],
+    "cta": {
+      "text": "Preview Section 3",
+      "href": "#/section/3"
+    }
+  }
+}
+</script>
+    <script src="./design-mode.js" defer></script>
+    <script src="./app.js" defer></script>
+    <script src="./app.learn.js" defer></script>
+  </body>
+</html>

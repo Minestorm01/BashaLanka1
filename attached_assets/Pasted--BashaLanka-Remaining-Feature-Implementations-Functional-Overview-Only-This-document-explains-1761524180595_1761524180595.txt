@@ -1,0 +1,142 @@
+🦁 BashaLanka — Remaining Feature Implementations (Functional Overview Only)
+
+This document explains which views and systems are still incomplete in the current BashaLanka build, how they should work conceptually, and what behavior to implement next.
+No code required — just the logic, data flow, and intended functionality.
+
+1. Characters View (#view-characters)
+
+Current state:
+
+The route exists and renders a header (Characters) and an empty <div id="charGrid" class="card-grid">.
+
+There’s no script that loads or populates the characters into this grid.
+
+Intended behavior:
+
+The Characters view will act as a Character Mastery hub — the foundation for Sinhala script learning.
+
+It should display a grid of character cards (vowels, consonants, combos), grouped by learning stage.
+
+Each card shows the Sinhala character, transliteration, pronunciation, and a “Start Practice” button.
+
+Clicking a card launches the same exercise interface as the main lessons but limited to character-based tasks (e.g., match pairs, listening, or writing trace).
+
+Progress for each character (e.g., mastered %, accuracy) should show below the card.
+
+Data source idea:
+
+Pull data from a YAML/JSON file such as assets/Lessons/characters.map.json or a similar file containing metadata for each letter group.
+
+Example structure: { "group": "Short Vowels", "chars": [{ "si": "අ", "roman": "a", "audio": "a.mp3", "lessonId": "char_01" }] }
+
+2. Practice View (#view-practice)
+
+Current state:
+
+Currently a static message: “Custom practice sessions coming soon.”
+
+Intended behavior:
+
+The Practice view allows users to create custom practice sessions by selecting:
+
+One or more completed lessons
+
+Exercise types (e.g., translation, listening)
+
+Skill focus (e.g., “recent mistakes,” “characters,” “verbs”)
+
+The interface should display:
+
+A configuration panel (dropdowns, toggles, or checkboxes)
+
+A “Start Practice” button that dynamically launches a practice session using the existing Lesson Simulator engine.
+
+XP and streak rewards still apply here, but practice sessions won’t unlock new content.
+
+Technical connection:
+
+This view uses the same exercise modules (TranslateToBase, MatchPairs, etc.) already used by the debug tools.
+
+It needs a non-admin entry point into those modules.
+
+3. Quests View (#view-quests)
+
+Current state:
+
+Displays title and an empty <div id="questsList" class="card-list">.
+
+Intended behavior:
+
+The Quests screen is for daily and long-term challenges.
+
+It should display a list of quest cards, each with:
+
+Quest title and description
+
+Progress bar (e.g., “Complete 3 lessons today — 2/3 done”)
+
+XP or badge reward shown on completion
+
+Quests refresh daily or weekly and encourage practice beyond structured lessons.
+
+Data source idea:
+
+Could use a static JSON file like assets/data/quests.json, structured as:
+
+[
+  { "id": "daily_01", "title": "Daily Warm-up", "desc": "Complete one lesson", "progress": 0.5, "reward": "20 XP" },
+  { "id": "weekly_02", "title": "Grammar Master", "desc": "Finish 10 exercises", "progress": 0.2, "reward": "Badge: Grammar Guru" }
+]
+
+
+Once loaded, each quest populates the list dynamically.
+
+4. Exercises Access for Regular Users
+
+Current state:
+
+Exercises are only accessible via the admin-only debug panel inside the Profile view.
+
+Regular users have no way to start a lesson or exercise directly.
+
+Intended behavior:
+
+Non-admin users should be able to click a lesson node in the Learn or Characters view to launch exercises.
+
+The app should use the Lesson Simulator UI (currently built for admin debug) as the universal exercise launcher.
+
+Add a lightweight “Start Lesson” button inside each lesson card that triggers LessonSimulator.open() with the appropriate lesson and exercise data.
+
+Outcome:
+
+Every user (not just “admin”) can begin lessons naturally from the Learn path.
+
+5. Landing Page (#/home)
+
+Current state:
+
+The router treats #/home and #/learn as the same route, both loading the Learn view.
+
+There is no standalone landing/marketing screen.
+
+Intended behavior:
+
+Create a dedicated Landing Page (#view-home) for first-time visitors before login or signup.
+
+This view highlights:
+
+BashaLanka logo and tagline
+
+“Start Learning” or “Continue” button
+
+Short description, screenshots, or character previews
+
+Returning users with progress go directly to Learn; new visitors see this landing first.
+
+Summary of Remaining Functional Areas
+Feature	Current State	Target Outcome
+Characters View	Static header, empty grid	Interactive grid of Sinhala letters grouped by type, each launching exercises
+Practice View	Placeholder card only	Custom session builder using existing exercises
+Quests View	Title + empty list	Dynamic quest cards with progress + rewards
+Exercise Access	Admin-only	Universal lesson launch for all users
+Landing Page	None (points to Learn)	Separate onboarding/home screen for new users
