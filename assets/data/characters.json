@@ -1,0 +1,64 @@
+{
+  "groups": [
+    {
+      "id": "short-vowels",
+      "title": "Short Vowels",
+      "order": 1,
+      "characters": [
+        {"si": "අ", "roman": "a", "ipa": "/a/", "audio": "අ_fast.mp3", "meaning": "as in 'father'"},
+        {"si": "ඇ", "roman": "ä", "ipa": "/æ/", "audio": "ඇ_fast.mp3", "meaning": "as in 'cat'"},
+        {"si": "ඉ", "roman": "i", "ipa": "/i/", "audio": "ඉ_fast.mp3", "meaning": "as in 'bit'"},
+        {"si": "උ", "roman": "u", "ipa": "/u/", "audio": "උ_fast.mp3", "meaning": "as in 'put'"},
+        {"si": "එ", "roman": "e", "ipa": "/e/", "audio": "එ_fast.mp3", "meaning": "as in 'bed'"},
+        {"si": "ඔ", "roman": "o", "ipa": "/o/", "audio": "ඔ_fast.mp3", "meaning": "as in 'hot'"}
+      ]
+    },
+    {
+      "id": "long-vowels",
+      "title": "Long Vowels",
+      "order": 2,
+      "characters": [
+        {"si": "ආ", "roman": "ā", "ipa": "/aː/", "audio": "ආ_fast.mp3", "meaning": "long 'a'"},
+        {"si": "ඈ", "roman": "ǣ", "ipa": "/æː/", "audio": "ඈ_fast.mp3", "meaning": "long 'ä'"},
+        {"si": "ඊ", "roman": "ī", "ipa": "/iː/", "audio": "ඊ_fast.mp3", "meaning": "as in 'see'"},
+        {"si": "ඌ", "roman": "ū", "ipa": "/uː/", "audio": "ඌ_fast.mp3", "meaning": "as in 'food'"},
+        {"si": "ඒ", "roman": "ē", "ipa": "/eː/", "audio": "ඒ_fast.mp3", "meaning": "as in 'day'"},
+        {"si": "ඕ", "roman": "ō", "ipa": "/oː/", "audio": "ඕ_fast.mp3", "meaning": "as in 'go'"}
+      ]
+    },
+    {
+      "id": "basic-consonants",
+      "title": "Basic Consonants",
+      "order": 3,
+      "characters": [
+        {"si": "ක", "roman": "ka", "ipa": "/ka/", "audio": "ක_fast.mp3", "meaning": "k sound"},
+        {"si": "ග", "roman": "ga", "ipa": "/ɡa/", "audio": "ග_fast.mp3", "meaning": "g sound"},
+        {"si": "ත", "roman": "ta", "ipa": "/t̪a/", "audio": "ත_fast.mp3", "meaning": "t sound"},
+        {"si": "ද", "roman": "da", "ipa": "/d̪a/", "audio": "ද_fast.mp3", "meaning": "d sound"},
+        {"si": "න", "roman": "na", "ipa": "/na/", "audio": "න_fast.mp3", "meaning": "n sound"},
+        {"si": "ප", "roman": "pa", "ipa": "/pa/", "audio": "ප_fast.mp3", "meaning": "p sound"},
+        {"si": "බ", "roman": "ba", "ipa": "/ba/", "audio": "බ_fast.mp3", "meaning": "b sound"},
+        {"si": "ම", "roman": "ma", "ipa": "/ma/", "audio": "ම_fast.mp3", "meaning": "m sound"},
+        {"si": "ය", "roman": "ya", "ipa": "/ja/", "audio": "ය_fast.mp3", "meaning": "y sound"},
+        {"si": "ර", "roman": "ra", "ipa": "/ra/", "audio": "ර_fast.mp3", "meaning": "r sound"},
+        {"si": "ල", "roman": "la", "ipa": "/la/", "audio": "ල_fast.mp3", "meaning": "l sound"},
+        {"si": "ව", "roman": "va", "ipa": "/ʋa/", "audio": "ව_fast.mp3", "meaning": "v/w sound"},
+        {"si": "ස", "roman": "sa", "ipa": "/sa/", "audio": "ස_fast.mp3", "meaning": "s sound"},
+        {"si": "හ", "roman": "ha", "ipa": "/ha/", "audio": "හ_fast.mp3", "meaning": "h sound"}
+      ]
+    },
+    {
+      "id": "common-words",
+      "title": "Common Words",
+      "order": 4,
+      "characters": [
+        {"si": "මම", "roman": "mama", "ipa": "/mama/", "audio": "මම_fast.mp3", "meaning": "I/me"},
+        {"si": "ඔයා", "roman": "oyā", "ipa": "/ojaː/", "audio": "ඔයා_fast.mp3", "meaning": "you (informal)"},
+        {"si": "ඔහු", "roman": "ohu", "ipa": "/ohu/", "audio": "ඔහු_fast.mp3", "meaning": "he"},
+        {"si": "ඇය", "roman": "æya", "ipa": "/æja/", "audio": "ඇය_fast.mp3", "meaning": "she"},
+        {"si": "හොඳයි", "roman": "hondai", "ipa": "/hond̪ai/", "audio": "හොඳයි_fast.mp3", "meaning": "good/fine"},
+        {"si": "කොහොමද", "roman": "kohomada", "ipa": "/kohomad̪a/", "audio": "කොහොමද_fast.mp3", "meaning": "how are you"}
+      ]
+    }
+  ]
+}

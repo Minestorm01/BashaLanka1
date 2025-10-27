@@ -1,0 +1,69 @@
+{
+  "id": "section-01-introductions",
+  "number": 1,
+  "title": "Introductions & Essentials (Revised)",
+  "status": "unlocked",
+  "cta": "Start Section 1",
+  "description": "Core greetings, introductions, origins, feelings, and polite expressions for everyday Sinhala conversations.",
+  "units": [
+    {
+      "id": "unit-01-pronouns-greetings",
+      "number": 1,
+      "title": "Greetings & Basics",
+      "status": "unlocked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1", "status": "unlocked" },
+        { "id": "lesson-02", "title": "Lesson 2", "status": "locked" },
+        { "id": "lesson-03", "title": "Lesson 3", "status": "locked" }
+      ]
+    },
+    {
+      "id": "unit-02-introducing-yourself",
+      "number": 2,
+      "title": "Introducing Yourself",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1", "status": "locked" },
+        { "id": "lesson-02", "title": "Lesson 2", "status": "locked" },
+        { "id": "lesson-03", "title": "Lesson 3", "status": "locked" },
+        { "id": "lesson-04", "title": "Lesson 4", "status": "locked" }
+      ]
+    },
+    {
+      "id": "unit-03-nationalities",
+      "number": 3,
+      "title": "Where You're From",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1", "status": "locked" },
+        { "id": "lesson-02", "title": "Lesson 2", "status": "locked" },
+        { "id": "lesson-03", "title": "Lesson 3", "status": "locked" },
+        { "id": "lesson-04", "title": "Lesson 4", "status": "locked" }
+      ]
+    },
+    {
+      "id": "unit-04-age",
+      "number": 4,
+      "title": "Feelings & Health",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1", "status": "locked" },
+        { "id": "lesson-02", "title": "Lesson 2", "status": "locked" },
+        { "id": "lesson-03", "title": "Lesson 3", "status": "locked" },
+        { "id": "lesson-04", "title": "Lesson 4", "status": "locked" }
+      ]
+    },
+    {
+      "id": "unit-05-languages",
+      "number": 5,
+      "title": "Politeness & Farewells",
+      "status": "locked",
+      "lessons": [
+        { "id": "lesson-01", "title": "Lesson 1", "status": "locked" },
+        { "id": "lesson-02", "title": "Lesson 2", "status": "locked" },
+        { "id": "lesson-03", "title": "Lesson 3", "status": "locked" },
+        { "id": "lesson-04", "title": "Lesson 4", "status": "locked" }
+      ]
+    }
+  ]
+}
